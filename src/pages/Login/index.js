@@ -5,7 +5,9 @@ import { StyleSheet,
     TouchableOpacity,
     SafeAreaView,
     Image,
-    TextInput } from 'react-native'; 
+    TextInput,
+    ActivityIndicator,
+    KeyboardAvoidingView  } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // 3 importando elemento para navegação
 import LogoChelsea from '../../../assets/Chelsea_FC.svg.png'
 import AppLoading from 'expo-app-loading';
@@ -51,7 +53,7 @@ let fontSize = 24;
 let paddingVertical = 6;
 
 if (!fontsLoaded) {
-  return <AppLoading />;
+  return  <ActivityIndicator size="large" color="#034694" />;
 } else {
                                                                           
   return(
@@ -67,6 +69,9 @@ if (!fontsLoaded) {
         </Text>
       </View>
 
+      
+
+      
       <View style={styles.inputContainer}>
         <FontAwesome style={styles.icon} name="user" size={20} color="#FFF" />
         <TextInput
@@ -91,13 +96,14 @@ if (!fontsLoaded) {
         />
       </View>
 
-      <TouchableOpacity 
+        <TouchableOpacity 
           onPress={()=> navigation.navigate('HomeStack')} /* ao clicar navega a pagina Sobre (ver linha 7 desta pagina e 44 de app.js)*/   
           style={styles.btnLogin}   
         >
           <Text style={styles.textBtn}>Login</Text>
         </TouchableOpacity>
 
+      
         
         
         <TouchableOpacity 
@@ -106,6 +112,7 @@ if (!fontsLoaded) {
         >
         <Text style={styles.textCadastro}>Cadastrar nova conta?</Text>
         </TouchableOpacity>
+        
         
     </SafeAreaView>
 
@@ -119,16 +126,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#034694',
   },
+  loginContainer: {
+    flex: 1
+  },
   logoContainer: {
-    marginTop: '30%',
-    marginBottom: '15%',
+    marginBottom: '5%',
     alignItems: 'center',
   },
   logoStyle: {
-    width: 100,
-    height: 100,
+    width: 85,
+    height: 85,
   },
   textLogo: {
     marginTop: 15,
@@ -144,6 +154,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#FFF',
     width: 200,
     marginBottom: 20,
+    
   },
   input: {
     marginLeft: 10,
@@ -162,7 +173,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto_700Bold',
   },
   btnCadastro: {
-   marginTop: '25%'
+   marginTop: '10%'
   },
   textCadastro: {
     color: '#FFF',
