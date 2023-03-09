@@ -5,7 +5,7 @@ export default function New(){
     return(
         <View>
             <Text>
-                Pagina Detalhes do User
+                Pagina News
             </Text>
         </View>
     )
