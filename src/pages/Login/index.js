@@ -6,11 +6,9 @@ import { StyleSheet,
     SafeAreaView,
     Image,
     TextInput,
-    ActivityIndicator,
-    KeyboardAvoidingView  } from 'react-native'; 
+    ActivityIndicator  } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // 3 importando elemento para navegação
 import LogoChelsea from '../../../assets/Chelsea_FC.svg.png'
-import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Roboto_100Thin,
