@@ -51,8 +51,7 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
     Roboto_900Black_Italic,
   });
   
-  let fontSize = 24;
-  let paddingVertical = 6;
+  
 
   if (!fontsLoaded) {
     return  <ActivityIndicator size="large" color="#034694" />;
@@ -66,18 +65,23 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
                     style={styles.newImage}
                     source={data.newImage}
                 />
-        
-                <Text style={styles.textTitle}>
+
+                <View style={styles.containerTitleAndBtnModal}>
+                  <Text style={styles.textTitle}>
                     {data.title}
-                </Text>
+                  </Text>
+
+                  <TouchableOpacity onPress={entrar} style={styles.containerBtnLer}>
+                    <Text style={styles.textBtnLer}>
+                      Ler mais..
+                    </Text>
+                  </TouchableOpacity> 
+                </View>
+                
             </View>   
           
         
-            <TouchableOpacity onPress={entrar}>
-                <Text style={styles.textBtnLer}>
-                    Ler mais..
-                </Text>
-            </TouchableOpacity> 
+            
             
             <Modal 
                 transparent={true}
@@ -87,7 +91,7 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
 
                 <View style={styles.containerModal}>
 
-                    <ScrollView style={styles.containerModalNew} showsVerticalScrollIndicator={false}>
+                    <View style={styles.containerModalNew} >
                         <Image
                             source={data.newImage}
                             style={styles.modalImage}
@@ -95,17 +99,18 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
                         <Text style={styles.textTitleModal}>
                             {data.title}
                         </Text> 
-                        <Text style={styles.textNewModal}>
+                        <ScrollView showsVerticalScrollIndicator={false}>
+                          <Text style={styles.textNewModal}>
                             {data.new}
-                        </Text> 
+                          </Text>
+                        </ScrollView>
+                         
                         <View style={styles.containerBtn}>
                             <TouchableOpacity style={styles.btnModal}  onPress={sair}>
                                 <Text style={styles.textBtnModal}>Sair</Text>
                             </TouchableOpacity>
                         </View>
-                        
-                    </ScrollView>          
-
+                    </View>          
                 </View>
             </Modal>
         </View>  
@@ -120,54 +125,70 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
 const styles = StyleSheet.create({
   container: {
     flex:  1,
-    alignItems: 'center',
     
   },
   containerNew: {
     flex: 1,
     display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#034694',
     marginVertical: 10,
-    borderRadius: 20,
+    flexDirection: 'row',
     padding: 10,
+
   },
   newImage: {
-    width: 250,
-    height: 150,
+    width: '35%',
+    height: 120,
+    borderTopLeftRadius: 10, 
+    borderBottomLeftRadius: 10, 
+    
   },
+  containerTitleAndBtnModal: {
+    width: '60%',
+    backgroundColor: '#FFF',
+    paddingVertical: 20,
+    borderTopRightRadius: 10, 
+    borderBottomRightRadius: 10, 
+    height: 120,
+  },
+
   textTitle: {
-    color: '#FFF',
+    color: '#034694',
     fontFamily: 'Roboto_700Bold',
-    fontSize: 22,
-    marginTop: 15,
-    paddingBottom: 7,
-    borderBottomColor: '#FFF',
-    borderBottomWidth: 1,
+    fontSize: 16,
+    marginHorizontal: '4%',
     textAlign: 'center',
+    
+    
+  },
+  containerBtnLer: {
+    alignItems: 'center',
+    paddingTop: '10%'
   },
   textBtnLer: {
-    color: '#FFF',
-    position: 'relative',
-    bottom: 10,
+    color: '#034694',
     fontSize: 15,
     fontFamily: 'Roboto_500Medium_Italic',
+    
   },
   containerModal: {
     marginTop: '25%',
     width: '80%',
     marginHorizontal: '10%',
-    height: '60%',
+    height: '70%',
     alignItems: 'center',
     backgroundColor: '#FFF',
+    borderRadius: 15,
   },
 
   modalImage: {
     width: 250,
     height: 150,
     marginTop: 20,
-    marginLeft: '10%'
+    marginLeft: '10%',
+    borderRadius: 15,
   },
   textTitleModal: {
     color: '#034694',
@@ -189,10 +210,11 @@ const styles = StyleSheet.create({
   containerBtn: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 20,
+    marginVertical: 10,
   },
   btnModal: {
     backgroundColor: '#034694',
+    borderRadius: 15,
     
   },
   textBtnModal: {
