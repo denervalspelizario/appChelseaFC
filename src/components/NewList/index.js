@@ -80,9 +80,6 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
                 
             </View>   
           
-        
-            
-            
             <Modal 
                 transparent={true}
                 animationType='fade'                                

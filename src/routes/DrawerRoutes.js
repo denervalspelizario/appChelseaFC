@@ -19,22 +19,36 @@ export default function Routes(){
       screenOptions={{
         
         
+
+        headerTintColor: '#FFF', // color em qualquer elemento do header do drawer
         drawerActiveBackgroundColor: '#FFF', // cor de fundo de rota ativada dentro do drawer
 
         drawerActiveTintColor: '#034694', // cor de link ativo
 
         drawerInactiveBackgroundColor: '#f1f1f1', // cor de fundo de rota não ativo dentro do drawer
-        drawerInactiveTintColor: '#000'  //cor de link não ativo
+        drawerInactiveTintColor: '#000',  //cor de link não ativo
+
+        headerTitleAlign: 'center',
+        
+        headerStyle: {
+          backgroundColor : '#034694',
+          borderBottomWidth: 0,
+          
+          
+        },
         
       }}   
      
+
      >
 
       <Drawer.Screen //  elemento de tela
         name="TabRoutes" 
         component={TabRoutes} 
         options={{
-          title:'Inicio'
+          title:'Inicio',
+          
+          
         }}
         
       />
@@ -42,7 +56,7 @@ export default function Routes(){
         name="Stadium" 
         component={Stadium} 
         options={{
-          title:'StamforBridge'
+          title:'StamfordBridge'
         }}
         
       />
