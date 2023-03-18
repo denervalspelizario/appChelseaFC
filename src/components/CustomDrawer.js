@@ -28,7 +28,7 @@ export default function CustomDrawer(props){
 
             </View>
 
-            <DrawerItemList  
+            <DrawerItemList   style={{ fontSize: 25}}
                 
                 {...props}   
             />

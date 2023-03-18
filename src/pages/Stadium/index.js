@@ -32,9 +32,6 @@ import {
   Roboto_900Black,
   Roboto_900Black_Italic,
 } from '@expo-google-fonts/roboto';
-import { color } from 'react-native-reanimated';
-
-
 
 export default function Stadium(){
 
@@ -222,55 +219,6 @@ if (!fontsLoaded) {
           
         </Modal>
       </View>
-      
-      {/*
-      <ScrollView horizontal={true} style={styles.containerImageStadium} > 
-        
-        <TouchableWithoutFeedback onPress={entrar}>
-          <Image 
-            style={styles.imageStadiumList}
-            source={Stadium3}
-          />
-        </TouchableWithoutFeedback>  
-
-        <TouchableWithoutFeedback onPress={entrar}>
-          <Image 
-            style={styles.imageStadiumList}
-            source={Stadium2}
-          />
-        </TouchableWithoutFeedback>
-
-        <TouchableWithoutFeedback onPress={entrar}>
-          <Image 
-            style={styles.imageStadiumList}
-            source={Stadium4}
-          />
-        </TouchableWithoutFeedback>
-
-        <TouchableWithoutFeedback onPress={entrar}>
-          <Image 
-            style={styles.imageStadiumList}
-            source={Stadium5}
-          />
-        </TouchableWithoutFeedback>
-
-        <TouchableWithoutFeedback onPress={entrar}>
-          <Image  
-            style={styles.imageStadiumList}
-            source={Stadium6}
-          />
-        </TouchableWithoutFeedback>
-
-        <TouchableWithoutFeedback onPress={entrar}>
-          <Image 
-            style={styles.imageStadiumList}
-            source={Stadium7}
-          />
-        </TouchableWithoutFeedback>  
-        
-      </ScrollView>
-      */}
-      
     </SafeAreaView>
 
   )

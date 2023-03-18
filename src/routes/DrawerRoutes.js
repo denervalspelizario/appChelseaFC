@@ -19,8 +19,8 @@ export default function Routes(){
       screenOptions={{
         
         
-
-        headerTintColor: '#FFF', // color em qualquer elemento do header do drawer
+        
+        headerTintColor: '#034694', // color em qualquer elemento do header do drawer
         drawerActiveBackgroundColor: '#FFF', // cor de fundo de rota ativada dentro do drawer
 
         drawerActiveTintColor: '#034694', // cor de link ativo
@@ -31,8 +31,8 @@ export default function Routes(){
         headerTitleAlign: 'center',
         
         headerStyle: {
-          backgroundColor : '#034694',
-          borderBottomWidth: 0,
+          backgroundColor : '#FFF',
+          
           
           
         },
@@ -46,7 +46,7 @@ export default function Routes(){
         name="TabRoutes" 
         component={TabRoutes} 
         options={{
-          title:'Inicio',
+          title:'Home',
           
           
         }}
@@ -56,7 +56,8 @@ export default function Routes(){
         name="Stadium" 
         component={Stadium} 
         options={{
-          title:'StamfordBridge'
+          title:'Stamford Bridge',
+          
         }}
         
       />
@@ -66,7 +67,7 @@ export default function Routes(){
         name="Sponsor"
         component={Sponsor} 
         options={{
-          title:'Patrocinios'
+          title:'Sponsor'
         }}
         
       />
