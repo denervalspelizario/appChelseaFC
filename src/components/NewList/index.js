@@ -1,6 +1,6 @@
 import React , { useState }from 'react'; 
 import { StyleSheet, Text, View, Image, SafeAreaView, Modal, TouchableOpacity, ActivityIndicator, ScrollView } from 'react-native';  
-import LogoChelsea from '../../../assets/Chelsea_FC.svg.png'
+
 import {
     useFonts,
     Roboto_100Thin,
@@ -52,7 +52,6 @@ export default function Newlist({data}){ // acessando atravez de props o data = 
   });
   
   
-
   if (!fontsLoaded) {
     return  <ActivityIndicator size="large" color="#034694" />;
   } else {    
@@ -157,8 +156,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginHorizontal: '4%',
     textAlign: 'center',
-    
-    
   },
   containerBtnLer: {
     alignItems: 'center',
