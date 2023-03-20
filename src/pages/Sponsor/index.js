@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text, StyleSheet, SafeAreaView, ActivityIndicator, Image, ScrollView } from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, ActivityIndicator, Image, } from 'react-native';
 import {
     useFonts,
     Roboto_900Black,
@@ -90,63 +90,6 @@ export default function Sponsor(){
                     />   
                     
                 </View>
-            
-                 
-
-                
-                 
-                 
-                 
-            {/*   
-
-                <ScrollView showsVerticalScrollIndicator={false} horizontal={true}>
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow1.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow2.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow3.png')}
-                />
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow4.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow5.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow6.png')}
-                />
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow7.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow8.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow9.png')}
-                /> 
-                <Image
-                    style={styles.logoSponsorLow}
-                    source={require('../../../assets/Sponsor/slow10.png')}
-                />                                                          
-
-
-                </ScrollView>
-
-                */} 
-        
-            
             </View>
         </SafeAreaView>
         )
