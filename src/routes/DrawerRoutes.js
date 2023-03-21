@@ -18,8 +18,6 @@ export default function Routes(){
       drawerContent={CustomDrawer} 
       screenOptions={{
         
-        
-        
         headerTintColor: '#034694', // color em qualquer elemento do header do drawer
         drawerActiveBackgroundColor: '#FFF', // cor de fundo de rota ativada dentro do drawer
 
@@ -32,14 +30,8 @@ export default function Routes(){
         
         headerStyle: {
           backgroundColor : '#FFF',
-          
-          
-          
-        },
-        
+        }
       }}   
-     
-
      >
 
       <Drawer.Screen //  elemento de tela

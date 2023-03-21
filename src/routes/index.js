@@ -2,7 +2,8 @@ import React from 'react';
 import Login from '../pages/Login'; //  paginas para navegação - cria-se a pagina depois as importa, observar a estrutura de pastas
 import Sign from '../pages/Sign'; //  paginas para navegação - cria-se a pagina depois as importa, observar a estrutura de pastas
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; //  depois de instalar biblioteca importar o tipo de navegação usada neste caso tabbs navigator
-
+import Man from '../pages/Man';
+import Woman from '../pages/Man';
 import DrawerRoutes from './DrawerRoutes';
 
 
@@ -37,7 +38,22 @@ export default function Routes(){
         options={{  // estilizacao da navegaçao
             headerShown: false, // desliga(false) e liga(true) cabeçario de navegação
           }}
-        /> 
+        />
+      <Stack.Screen 
+        name="Woman"
+        component={Woman} 
+        options={{  // estilizacao da navegaçao
+          headerShown: true, 
+        }}
+      />
+      <Stack.Screen 
+        name="Man"
+        component={Man} 
+        options={{  // estilizacao da navegaçao
+          headerShown: true, 
+        }}
+        
+      /> 
      </Stack.Navigator>
   )
 }

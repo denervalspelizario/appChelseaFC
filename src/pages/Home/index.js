@@ -13,7 +13,7 @@ export default function Home(){
     const [maior, setMaior] = useState(new Animated.Value(-350))
     const [logo, setLogo] = useState(new Animated.Value(0))
 
-   Animated.loop(
+   //Animated.loop(
     Animated.parallel([
         Animated.timing( 
             chelsea,  
@@ -79,7 +79,7 @@ export default function Home(){
         
     ]) // funcao para estartar a animação   
 
-   ).start()
+   //).start()
       
       
   useEffect(() => {
