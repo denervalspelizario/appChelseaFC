@@ -1,12 +1,62 @@
 import React from "react";
-import { View, StyleSheet, Text} from 'react-native'
+import { View, StyleSheet, Text, SafeAreaView, Image, ActivityIndicator} from 'react-native';
+import LogoImage from '../../../assets/Chelsea_FC.svg.png';
 
-export default function Woman(){
+import { useFonts,  SourceSansPro_600SemiBold, } from '@expo-google-fonts/source-sans-pro';
+
+
+export default function Man(){
+
+    let [fontsLoaded] = useFonts({
+        SourceSansPro_600SemiBold,
+      });
+
+      if (!fontsLoaded) {
+        return  <ActivityIndicator size="large" color="#034694" />;
+
+   } else {
+
     return(
-        <View>
+        <SafeAreaView style={styles.container}>
+            <View style={styles.containerHeader}>
+                <Image
+                    source={LogoImage}
+                    style={styles.imageHeader}
+                />
+                <Text style={styles.textHeader}>
+                    Woman Team
+                </Text>
+            </View>
             <Text>
-                Screen Woman
+                
             </Text>
-        </View>
+        </SafeAreaView>
     )
+   }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#034694',
+        flex: 1,
+    },
+
+    containerHeader: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: '10%',
+        
+    },
+    imageHeader: {
+        width: 60,
+        height: 60,
+    },
+    textHeader: {
+        fontSize: 38,
+        marginLeft: 10,
+        
+        color: '#FFF',
+        fontFamily: 'SourceSansPro_600SemiBold',
+    }
+
+});

@@ -1,9 +1,9 @@
 import React from 'react'; // 1 importando o useRef
 import { StyleSheet, Text, View, TouchableOpacity, Image, ActivityIndicator, SafeAreaView } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; 
-import ManImage from '../../../assets/Team/TeamMan.png'
-import WomanImage from '../../../assets/Team/TeamWoman.png'
-
+import ManImage from '../../../assets/Team/manList/Ataque/joaoFelix.png'
+import StaffImage from '../../../assets/Team/manList/comissao/grahamPotter.png'
+import { Ionicons } from '@expo/vector-icons';
 import {
   useFonts,
   Roboto_900Black,
@@ -11,19 +11,19 @@ import {
 
 export default function Team(){
 
-    
-
  const navigation = useNavigation();  
 
- function navegaWoman(){
-  navigation.navigate('Woman') 
+ function voltar(){
+  navigation.navigate('Team') 
+  }
+
+ function navegaStaff(){
+  navigation.navigate('StaffMan') 
  }                                                                          
  
  function navegaMan(){
-  navigation.navigate('TeamMan') 
+  navigation.navigate('Man') 
  }    
-
- 
  
  
  let [fontsLoaded] = useFonts({
@@ -36,30 +36,33 @@ if (!fontsLoaded) {
 } else {  
 
   return(
-    <View style={styles.container}>
-
-       <View style={{marginBottom: '20%'}}>
-        
+    
+    <SafeAreaView style={styles.containerSafe}>
+      <TouchableOpacity onPress={voltar} style={styles.btnBack}>
+          <Ionicons name="arrow-back-circle-outline" size={32} color="#FFF" />
+      </TouchableOpacity> 
+      
+      <View style={styles.container}>
         <TouchableOpacity 
-          onPress={ navegaWoman }  // 5 funcao chamada ao clicar (linha 10) cria a funcao e acessa ao clicar
+          onPress={ navegaStaff }  // 5 funcao chamada ao clicar (linha 10) cria a funcao e acessa ao clicar
+          style={{marginBottom: '25%'}}
         >
-          <View style={styles.containerTeam}>
-        
-            <View style={styles.containerImageTeam}>
+        <View style={styles.containerTeam}>
+          <View style={styles.containerImageTeam}>
             <Image
-              source={WomanImage}
+              source={StaffImage}
               style={styles.imageTeam}
             />
-            </View>
-        
-            <View style={styles.containerTextTeam}>
-              <Text style={styles.textTeam}>
-                Woman
-              </Text>
-            </View>
           </View>
+        
+          <View style={styles.containerTextTeam}>
+            <Text style={styles.textTeam}>
+              Staff
+            </Text>
+          </View>
+        </View>
         </TouchableOpacity>
-        </View> 
+        
        
         <TouchableOpacity style={styles.btnTeam}
           onPress={ navegaMan }  // 5 funcao chamada ao clicar (linha 10) cria a funcao e acessa ao clicar
@@ -74,13 +77,13 @@ if (!fontsLoaded) {
         
             <View style={styles.containerTextTeam}>
               <Text style={styles.textTeam}>
-                Man
+                Players
               </Text>
             </View>
           </View>
         </TouchableOpacity>
-        
-    </View>
+      </View>  
+    </SafeAreaView>
 
   )
 
@@ -89,14 +92,19 @@ if (!fontsLoaded) {
 }
 
 const styles = StyleSheet.create({
+  containerSafe: {
+    flex: 1,
+    backgroundColor: '#034394',
+  },
+  btnBack: {
+    paddingTop: '10%',
+    paddingLeft: '5%',
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#034394',
     paddingHorizontal: '10%'
-    
-  
   },
   imageTeam: {
     width: 120,
@@ -133,6 +141,7 @@ const styles = StyleSheet.create({
     marginHorizontal: '4%',
     textAlign: 'center',
   },
+  
   
   
 });

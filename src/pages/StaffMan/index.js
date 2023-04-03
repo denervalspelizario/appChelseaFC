@@ -5,10 +5,10 @@ import { useFonts,  SourceSansPro_600SemiBold, } from '@expo-google-fonts/source
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import ManList from '../../components/ManList'
-import { dataManList } from "../../data/dataManList";
+import { dataManStaffList } from "../../data/dataStaffManList";
 
 
-export default function Man(){
+export default function StaffMan(){
 
     const navigation = useNavigation(); 
 
@@ -38,11 +38,11 @@ export default function Man(){
                     style={styles.imageHeader}
                 />
                 <Text style={styles.textHeader}>
-                    Man Team
+                    Staff
                 </Text>
             </View>
             <FlatList 
-                data={dataManList} // base de dados que a flatlista vai receber
+                data={dataManStaffList} // base de dados que a flatlista vai receber
                 showsVerticalScrollIndicator={false}
 
                 keyExtractor={(item) => item.key} //linkando o id da lista Game a lista do flatlist
