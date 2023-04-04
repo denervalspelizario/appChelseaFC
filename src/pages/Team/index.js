@@ -16,7 +16,7 @@ export default function Team(){
  const navigation = useNavigation();  
 
  function navegaWoman(){
-  navigation.navigate('Woman') 
+  navigation.navigate('TeamWoman') 
  }                                                                          
  
  function navegaMan(){

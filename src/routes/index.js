@@ -5,9 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'; // 
 import Man from '../pages/Man';
 import Woman from '../pages/Woman';
 import TeamMan from '../pages/TeamMan';
-//import TeamWoman from '../pages/TeamWoman';
+import TeamWoman from '../pages/TeamWoman';
 import StaffMan from '../pages/StaffMan';
-//import StaffWoman from '../pages/StaffWoman';
+import StaffWoman from '../pages/StaffWoman';
 import DrawerRoutes from './DrawerRoutes';
 
 
@@ -68,6 +68,20 @@ export default function Routes(){
       <Stack.Screen 
         name="StaffMan"
         component={StaffMan} 
+        options={{  // estilizacao da navegaçao
+          headerShown: false, 
+        }}
+      /> 
+      <Stack.Screen 
+        name="TeamWoman"
+        component={TeamWoman} 
+        options={{  // estilizacao da navegaçao
+          headerShown: false, 
+        }}
+      /> 
+      <Stack.Screen 
+        name="StaffWoman"
+        component={StaffWoman} 
         options={{  // estilizacao da navegaçao
           headerShown: false, 
         }}
