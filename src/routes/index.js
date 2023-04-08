@@ -48,7 +48,7 @@ export default function Routes(){
         name="Woman"
         component={Woman} 
         options={{  // estilizacao da navegaçao
-          headerShown: true, 
+          headerShown: false, 
         }}
       />
       <Stack.Screen 

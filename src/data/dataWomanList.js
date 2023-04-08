@@ -29,7 +29,7 @@ import ImageWoman23 from '../../assets/Team/womanList/Ataque/samKerr.png';
 
 
 
-export const dataManList = [
+export const dataWomanList = [
   {
     // Goleiros
     key: '1', newImage: ImageWoman1 , name: 'Berger', subName: 'Anne',
