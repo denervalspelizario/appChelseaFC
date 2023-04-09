@@ -12,6 +12,7 @@ import Trofeu9 from '../../../assets/Trofeus/t9.png'
 import Trofeu10 from '../../../assets/Trofeus/t10.png'
 import Trofeu11 from '../../../assets/Trofeus/t11.png'
 import TrofeuList from '../../components/TrofeuList'
+import Header from "../../components/Header";
 
 
 let trofeuData = [ 
@@ -69,7 +70,11 @@ export default function Honours(){
   
   return(
    
-  <SafeAreaView style={styles.containerTicket}>
+  <SafeAreaView style={styles.container}>
+    <Header/>
+    <View style={styles.containerTicket}>
+
+    
     <FlatList 
      data={trofeuData} // base de dados que a flatlista vai receber
      showsVerticalScrollIndicator={false}
@@ -83,7 +88,7 @@ export default function Honours(){
        )}
    />
     
-    
+    </View>
   </SafeAreaView>
 
   )
@@ -93,8 +98,17 @@ export default function Honours(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: '#034694',      
+    paddingTop: 50,
+    paddingLeft: 15,
+    
   },
-  
-});
+    containerTicket: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#034694',
+      paddingTop: 10
+    },
+    
+  });

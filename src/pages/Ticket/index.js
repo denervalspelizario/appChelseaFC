@@ -6,6 +6,7 @@ import Liverpool from '../../../assets/liverpool.png'
 import Brighton from '../../../assets/brighton.png'
 import Wolves from '../../../assets/wolverhampton.png'
 import JogoList from '../../components/JogosList'
+import Header from "../../components/Header";
 
 let Game = [ // sera como basde de dados
   {
@@ -40,31 +41,41 @@ let Game = [ // sera como basde de dados
 export default function Ticket(){
 
     return(
-        <SafeAreaView style={styles.containerTicket}>
-           <FlatList 
-            data={Game} // base de dados que a flatlista vai receber
-            showsVerticalScrollIndicator={false}
+        <SafeAreaView style={styles.container}>
+          <Header /> 
+          <View style={styles.containerTicket}>
+            <FlatList 
+              data={Game} // base de dados que a flatlista vai receber
+              showsVerticalScrollIndicator={false}
 
-            keyExtractor={(item) => item.key} //linkando o id da lista Game a lista do flatlist
+              keyExtractor={(item) => item.key} //linkando o id da lista Game a lista do flatlist
             
-            renderItem={ ({ item }) => ( // item contém toda a base de dados de Game(linha10), 
+              renderItem={ ({ item }) => ( // item contém toda a base de dados de Game(linha10), 
                                         //renderizando componente com props data(base de dados de Game)  
               <JogoList data={item}/> 
                                   
               )}
-          />
-           
+            />
+          </View> 
            
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
-    containerTicket: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#034694'
-    },
+  container: {
+    flex: 1,
+    backgroundColor: '#034694',      
+    paddingTop: 50,
+    paddingLeft: 15,
+    
+  },
+  containerTicket: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#034694',
+    paddingTop: 10
+  },
     
   });

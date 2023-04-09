@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import WomanList from '../../components/WomanList'
 import { dataStaffWomanList } from "../../data/dataStaffWomanList";
+import Header from "../../components/Header";
 
 
 export default function StaffWoman(){

@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import WomanImage from '../../../assets/Team/womanList/Ataque/samKerr.png'
 import StaffImage from '../../../assets/Team/womanList/comissao/emmaHayes.png'
 import { Ionicons } from '@expo/vector-icons';
+import Header from "../../components/Header";
 import {
   useFonts,
   Roboto_900Black,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import {View, Text, Image, StyleSheet, ActivityIndicator, SafeAreaView, Animated, LogBox } from 'react-native'
 import LogoImage from '../../../assets/Chelsea_FC.svg.png'
+import Header from "../../components/Header";
 
 import {
     useFonts,
@@ -13,7 +14,7 @@ export default function Home(){
     const [maior, setMaior] = useState(new Animated.Value(-350))
     const [logo, setLogo] = useState(new Animated.Value(0))
 
-   Animated.loop(
+Animated.loop(
     Animated.parallel([
         Animated.timing( 
             chelsea,  
@@ -101,17 +102,19 @@ export default function Home(){
 
     return(
         <SafeAreaView style={styles.container}>
-            <Animated.Text style={[{ bottom: chelsea, }, styles.textChelsea]}>
-                Chelsea FC
-            </Animated.Text>
-            <Animated.Image
-                source={LogoImage}
-                style={[styles.imageLogo, {opacity: logo}]}
-            />
-            <Animated.Text style={[styles.textMaior, {left: maior}]}>
-                O MAIOR CLUBE DE LONDRES
-            </Animated.Text>
-
+            <Header/>
+            <View style={styles.containerAnimation}>
+                <Animated.Text style={[{ left: chelsea, }, styles.textChelsea]}>
+                    Chelsea FC
+                </Animated.Text>
+                <Animated.Image
+                    source={LogoImage}
+                    style={[styles.imageLogo, {opacity: logo}]}
+                />
+                <Animated.Text style={[styles.textMaior, {left: maior}]}>
+                    O MAIOR CLUBE DE LONDRES
+                </Animated.Text>
+            </View>
         </SafeAreaView>
     )
 
@@ -121,9 +124,17 @@ export default function Home(){
 const styles = StyleSheet.create({
     container: {
       flex: 1,
+      backgroundColor: '#034694',      
+      paddingTop: 50,
+      paddingLeft: 15,
+    },
+    containerAnimation: {
+      flex: 1,
       alignItems: 'center',
-      justifyContent: 'center',
+      paddingTop: '40%',
       backgroundColor: '#034694',
+      marginTop: 15,
+
     },
     imageLogo: {
         width: 150,

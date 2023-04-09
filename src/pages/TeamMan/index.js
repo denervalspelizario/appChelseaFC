@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import ManImage from '../../../assets/Team/manList/Ataque/joaoFelix.png'
 import StaffImage from '../../../assets/Team/manList/comissao/grahamPotter.png'
 import { Ionicons } from '@expo/vector-icons';
+import Header from "../../components/Header";
 import {
   useFonts,
   Roboto_900Black,

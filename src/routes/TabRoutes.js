@@ -36,7 +36,8 @@ export default function TabRoutes(){
 
                     tabBarIcon: ({color, size}) => { // alterando icon da screen
                       return <FontAwesome name="home" size={size} color={color} /> 
-                    }
+                    },
+                    headerShown: false
                   
                   }}
                 

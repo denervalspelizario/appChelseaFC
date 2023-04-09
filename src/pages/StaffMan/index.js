@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import ManList from '../../components/ManList'
 import { dataManStaffList } from "../../data/dataStaffManList";
+import Header from "../../components/Header";
 
 
 export default function StaffMan(){

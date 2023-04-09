@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, ActivityIndicator, Saf
 import { useNavigation } from '@react-navigation/native'; 
 import ManImage from '../../../assets/Team/TeamMan.png'
 import WomanImage from '../../../assets/Team/TeamWoman.png'
+import Header from "../../components/Header";
 
 import {
   useFonts,
@@ -37,7 +38,10 @@ if (!fontsLoaded) {
 
   return(
     <View style={styles.container}>
+      <Header/>
+      <View style={styles.containerTeams}>
 
+      
        <View style={{marginBottom: '20%'}}>
         
         <TouchableOpacity 
@@ -79,7 +83,7 @@ if (!fontsLoaded) {
             </View>
           </View>
         </TouchableOpacity>
-        
+      </View>  
     </View>
 
   )
@@ -91,12 +95,17 @@ if (!fontsLoaded) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#034694',      
+    paddingTop: 50,
+    paddingLeft: 15,
+  },
+  containerTeams: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#034394',
-    paddingHorizontal: '10%'
+    paddingHorizontal: '10%',
     
-  
   },
   imageTeam: {
     width: 120,

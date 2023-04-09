@@ -27,7 +27,7 @@ export default function Routes(){
         drawerInactiveTintColor: '#000',  //cor de link não ativo
 
         headerTitleAlign: 'center',
-        
+        headerShown: false,
         headerStyle: {
           backgroundColor : '#FFF',
         }

@@ -7,6 +7,7 @@ import NewImage4 from '../../../assets/newsImage/New4.png'
 import NewImage5 from '../../../assets/newsImage/New6.png'
 import NewImage6 from '../../../assets/newsImage/New7.png'
 import NewList from '../../components/NewList'
+import Header from "../../components/Header";
 
 
 let Newdata = [ // sera como basde de dados
@@ -47,7 +48,9 @@ let Newdata = [ // sera como basde de dados
 export default function New(){
 
     return(
-        <SafeAreaView style={styles.containerTicket}>
+        <SafeAreaView style={styles.container}>
+          <Header/>
+          <View style={styles.containerTicket}>          
            <FlatList 
             data={Newdata} // base de dados que a flatlista vai receber
             showsVerticalScrollIndicator={false}
@@ -60,18 +63,26 @@ export default function New(){
                                   
               )}
           />
-           
+        </View>   
            
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#034694',      
+    paddingTop: 50,
+    paddingLeft: 15,
+    
+  },
     containerTicket: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#034694'
+      backgroundColor: '#034694',
+      paddingTop: 10
     },
     
   });

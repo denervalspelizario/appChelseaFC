@@ -4,6 +4,7 @@ import {
     useFonts,
     Roboto_900Black,
   } from '@expo-google-fonts/roboto';
+import Header from "../../components/Header";  
 
 
 
@@ -20,6 +21,9 @@ export default function Sponsor(){
       } else {    
     return(
         <SafeAreaView style={styles.containerSponsor}>
+            <View style={styles.header}>
+                <Header/>
+            </View>
             <View style={styles.containertitle}>
 
                 <Image
@@ -103,9 +107,11 @@ const styles = StyleSheet.create({
 
 containerSponsor: {
     flex: 1,
-    
-    
-    
+},
+header: {
+    backgroundColor: '#034694',
+    paddingTop: 40,
+    paddingLeft: 15
 },
 textSponsor: {
     color: '#FFF',
@@ -118,10 +124,6 @@ containerSponsorUp: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    
-        
-    
-    
 },
 containerSponsorLow: {
     backgroundColor: '#f1f3f6',

@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import {View, Text, StyleSheet, SafeAreaView, ActivityIndicator, Image,TouchableOpacity, Modal, ScrollView } from 'react-native';
+import Header from "../../components/Header";
 import {
     useFonts,
     Roboto_500Medium,
@@ -33,8 +34,12 @@ export default function Foundation(){
         return  <ActivityIndicator size="large" color="#034694" />;
       } else {    
     return(
-        <SafeAreaView style={styles.containerSponsor}>
-            <View style={styles.containertitle}>
+        <SafeAreaView style={styles.container}>
+          <View style={{paddingLeft: 15}}>
+            <Header/>
+          </View>
+          <View style={styles.containerSponsor}>
+          <View style={styles.containertitle}>
                 <Image
                     style={styles.logoChelseaSponsor}
                     source={require('../../../assets/chelseaIcon.png')}
@@ -100,6 +105,8 @@ export default function Foundation(){
                     </View>          
                 </View>
             </Modal>  
+          </View>
+            
         </SafeAreaView>
         )
     }
@@ -109,7 +116,11 @@ export default function Foundation(){
 
 
 const styles = StyleSheet.create({
-
+container: {
+  flex: 1,
+  paddingTop: 40,
+  backgroundColor: '#FFF'
+},
 containerSponsor: {
     flex: 1,
 },

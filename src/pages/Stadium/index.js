@@ -32,6 +32,7 @@ import {
   Roboto_900Black,
   Roboto_900Black_Italic,
 } from '@expo-google-fonts/roboto';
+import Header from "../../components/Header";
 
 export default function Stadium(){
 
@@ -84,13 +85,15 @@ if (!fontsLoaded) {
 } else {    
     
   return(
-    <SafeAreaView style={styles.containerStadium}>
+    <SafeAreaView style={styles.container}>  
+      <View style={styles.header}>
+        <Header/>
+      </View>
+      <View style={styles.containerStadium}>
       <Image 
         style={styles.imageStadium}
         source={Stadium1}
       />
-
-      
 
       <View showsVerticalScrollIndicator={false} > 
 
@@ -219,6 +222,7 @@ if (!fontsLoaded) {
           
         </Modal>
       </View>
+      </View>
     </SafeAreaView>
 
   )
@@ -228,10 +232,19 @@ if (!fontsLoaded) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
   containerStadium: {
     flex: 1,
     alignItems: 'center',
     backgroundColor: '#034694',
+  },
+  header: {
+    backgroundColor: '#034694',
+    paddingTop: 40,
+    paddingLeft: 15,
+    paddingBottom: 20,
   },
   imageStadium: {
     width: '100%',
