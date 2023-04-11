@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React, {useState, useContext}  from 'react'; 
 import { StyleSheet, 
     Text,
     View,
@@ -6,7 +6,9 @@ import { StyleSheet,
     SafeAreaView,
     Image,
     TextInput,
-    ActivityIndicator  } from 'react-native'; 
+    ActivityIndicator,
+    Platform 
+   } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // 3 importando elemento para navegação
 import LogoChelsea from '../../../assets/Chelsea_FC.svg.png'
 import {
@@ -25,12 +27,23 @@ import {
   Roboto_900Black_Italic,
 } from '@expo-google-fonts/roboto';
 import { FontAwesome } from '@expo/vector-icons';
+import { AuthContext } from '../../contexts/auth';
 
 
 
 export default function Login(){
 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const { login, loadingAuth } = useContext(AuthContext)
+
  const navigation = useNavigation();  // 3 adicionando elemento a funcao navigation
+
+ function logar(){ // funcao acessada ao clicar no btn
+    
+  login(email, password) // funcao login recebendo os states que são os dados do input
+
+  }
 
  let [fontsLoaded] = useFonts({
   Roboto_100Thin,
@@ -67,9 +80,6 @@ if (!fontsLoaded) {
         </Text>
       </View>
 
-      
-
-      
       <View style={styles.inputContainer}>
         <FontAwesome style={styles.icon} name="user" size={20} color="#FFF" />
         <TextInput
@@ -78,6 +88,8 @@ if (!fontsLoaded) {
           underlineColorAndroid="transparent"   
           keyboardType='email-address'  
           maxLength={120}  
+          value={email}
+          onChangeText={(text) => setEmail(text) }
         
         />
       </View>
@@ -90,15 +102,22 @@ if (!fontsLoaded) {
           secureTextEntry={true} 
           autoCorrect={false} 
           textContentType={'password'}
+          value={password}
+          onChangeText={(text) => setPassword(text) }
           
         />
       </View>
 
         <TouchableOpacity 
-          onPress={()=> navigation.navigate('HomeStack')} /* ao clicar navega a pagina Sobre (ver linha 7 desta pagina e 44 de app.js)*/   
+          onPress={logar} 
           style={styles.btnLogin}   
         >
-          <Text style={styles.textBtn}>Login</Text>
+          {
+            loadingAuth ?  // se state loadingauth estiver true
+                 ( <ActivityIndicator/> )  // icon de loading
+              : 
+                ( <Text style={styles.textBtn}>Acessar</Text> ) // senão renderiza o texto do btn 
+          }
         </TouchableOpacity>
 
       

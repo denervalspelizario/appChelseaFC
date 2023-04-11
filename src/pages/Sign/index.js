@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React,{useState, useContext} from 'react'; 
 import { StyleSheet, 
     Text,
     View,
@@ -7,10 +7,13 @@ import { StyleSheet,
     Image,
     TextInput,
     ActivityIndicator,
+    Platform
      } from 'react-native'; 
 import { useNavigation } from '@react-navigation/native'; // 3 importando elemento para navegação
 import LogoChelsea from '../../../assets/Chelsea_FC.svg.png'
 import { MaterialIcons } from '@expo/vector-icons';
+import { AuthContext } from '../../contexts/auth.js'
+
 
 import {
   useFonts,
@@ -33,7 +36,17 @@ import { FontAwesome } from '@expo/vector-icons';
 
 export default function Sign(){
 
- const navigation = useNavigation();  // 3 adicionando elemento a funcao navigation
+ const [nome, setNome] = useState('')  
+ const [email, setEmail] = useState('')
+ const [password, setPassword] = useState('')
+ const { cadastro, loadingAuth } = useContext(AuthContext)
+ 
+
+ function funcaoCadastro(){          // funcao que ao clicar adiciona as states que são dados do input na 
+                                     // funcao cadastro que envia esses dados la no firebase ( ver src > contexts > auth.js  )
+  cadastro(email, password, nome)
+
+}
 
  let [fontsLoaded] = useFonts({
   Roboto_100Thin,
@@ -78,21 +91,11 @@ if (!fontsLoaded) {
           underlineColorAndroid="transparent"   
           keyboardType='name-phone-pad'
           maxLength={40}  
-        
+          value={nome}
+          onChangeText={(text) => setNome(text) }
         />
       </View>
       
-      <View style={styles.inputContainer}>
-        <FontAwesome style={styles.icon} name="user" size={20} color="#FFF" />
-        <TextInput
-          style={styles.input}  
-          placeholder='Sobrenome' 
-          underlineColorAndroid="transparent"   
-          keyboardType='name-phone-pad'
-          maxLength={100}  
-        
-        />
-      </View>
       
       <View style={styles.inputContainer}>
         <MaterialIcons name="email" size={20} color="#FFF" />
@@ -102,6 +105,8 @@ if (!fontsLoaded) {
           underlineColorAndroid="transparent"   
           keyboardType='name-phone-pad'  
           maxLength={120}  
+          value={email}
+          onChangeText={(text) => setEmail(text) }
         
         />
       </View>
@@ -115,6 +120,8 @@ if (!fontsLoaded) {
           secureTextEntry={true} 
           autoCorrect={false} 
           textContentType={'password'}
+          value={password}
+          onChangeText={(text) => setPassword(text) }
           
         />
       </View>
@@ -122,22 +129,17 @@ if (!fontsLoaded) {
      
 
         <TouchableOpacity 
-          onPress={()=> navigation.navigate('HomeStack')} /* ao clicar navega a pagina Sobre (ver linha 7 desta pagina e 44 de app.js)*/   
-          style={styles.btnLogin}   
+          onPress={funcaoCadastro} 
+          style={styles.btnLogin}  
         >
-          <Text style={styles.textBtn}>Cadastrar</Text>
-        </TouchableOpacity>
+          {
+            loadingAuth ?  // se state loadingauth estiver true 
+                 ( <ActivityIndicator/> )  // icon de loading
+              : 
+                ( <Text style={styles.textBtn}>Cadastrar</Text> ) // senão renderiza o texto do btn 
+          }
 
-      
-        
-        
-        <TouchableOpacity 
-          onPress={()=> navigation.navigate('Sign')} /* ao clicar navega a pagina Sobre (ver linha 7 desta pagina e 44 de app.js)*/   
-          style={styles.btnCadastro}    
-        >
-        
         </TouchableOpacity>
-        
         
     </SafeAreaView>
 
