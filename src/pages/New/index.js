@@ -8,6 +8,7 @@ import NewImage5 from '../../../assets/newsImage/New6.png'
 import NewImage6 from '../../../assets/newsImage/New7.png'
 import NewList from '../../components/NewList'
 import Header from "../../components/Header";
+import User from "../../components/User";
 
 
 let Newdata = [ // sera como basde de dados
@@ -50,6 +51,7 @@ export default function New(){
     return(
         <SafeAreaView style={styles.container}>
           <Header/>
+          <User/>
           <View style={styles.containerTicket}>          
            <FlatList 
             data={Newdata} // base de dados que a flatlista vai receber

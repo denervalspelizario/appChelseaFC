@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import ManImage from '../../../assets/Team/TeamMan.png'
 import WomanImage from '../../../assets/Team/TeamWoman.png'
 import Header from "../../components/Header";
+import User from '../../components/User';
 
 import {
   useFonts,
@@ -39,6 +40,7 @@ if (!fontsLoaded) {
   return(
     <View style={styles.container}>
       <Header/>
+      <User/>
       <View style={styles.containerTeams}>
 
       

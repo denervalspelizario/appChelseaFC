@@ -7,6 +7,7 @@ import Brighton from '../../../assets/brighton.png'
 import Wolves from '../../../assets/wolverhampton.png'
 import JogoList from '../../components/JogosList'
 import Header from "../../components/Header";
+import User from "../../components/User";
 
 let Game = [ // sera como basde de dados
   {
@@ -43,6 +44,7 @@ export default function Ticket(){
     return(
         <SafeAreaView style={styles.container}>
           <Header /> 
+          <User/>
           <View style={styles.containerTicket}>
             <FlatList 
               data={Game} // base de dados que a flatlista vai receber

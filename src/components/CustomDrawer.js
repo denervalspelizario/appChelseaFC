@@ -1,11 +1,16 @@
-import React from 'react';
-import {Text, View, Image, StyleSheet} from 'react-native'
+import React,{useContext} from 'react';
+import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native'
 import { DrawerContentScrollView, DrawerItemList, } from '@react-navigation/drawer' 
 import LogoChelsea from '../../assets/Chelsea_FC.svg.png';
+import {AuthContext} from '../contexts/auth';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
                                                                                     
                                                                                         
 
 export default function CustomDrawer(props){  
+
+    const { user, logout} = useContext(AuthContext) // acessando o user do contexto que contem os dados do usuario la no firebase
+    const nomeUser  = user && user.nome //acessdando o uid do user e jogando na consta
                                                          
     return(
         <DrawerContentScrollView {...props} style={{backgroundColor: '#034694'}}>
@@ -23,7 +28,7 @@ export default function CustomDrawer(props){
                 />   
 
                 <Text style={{color: '#FFF', fontSize: 20, marginTop: 25, fontWeight: 'bold', marginBottom: 35}}> 
-                    Bem-vindo!                                             
+                    Bem-vindo {nomeUser}!                                            
                 </Text> 
 
             </View>
@@ -32,6 +37,26 @@ export default function CustomDrawer(props){
                 
                 {...props}   
             />
+            <View style={styles.btnExit}>
+                <TouchableOpacity onPress={() => logout()}>
+                    <MaterialCommunityIcons name="exit-run" size={32} color="#FFF" />
+                </TouchableOpacity>
+                <Text style={styles.textExit}>Sair</Text>
+            </View>    
+            
         </DrawerContentScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    btnExit: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingTop: 20, 
+    },
+    textExit: {
+        color: '#FFF',
+        fontSize: 16,
+    }
+       
+  });

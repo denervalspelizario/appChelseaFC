@@ -1,7 +1,8 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, useContext} from "react";
 import {View, Text, Image, StyleSheet, ActivityIndicator, SafeAreaView, Animated, LogBox } from 'react-native'
 import LogoImage from '../../../assets/Chelsea_FC.svg.png'
 import Header from "../../components/Header";
+import User from "../../components/User";
 
 import {
     useFonts,
@@ -14,7 +15,8 @@ export default function Home(){
     const [maior, setMaior] = useState(new Animated.Value(-350))
     const [logo, setLogo] = useState(new Animated.Value(0))
 
-Animated.loop(
+    
+//Animated.loop(
     Animated.parallel([
         Animated.timing( 
             chelsea,  
@@ -80,7 +82,7 @@ Animated.loop(
         
     ]) // funcao para estartar a animação   
 
-   ).start()
+//   ).start()
       
       
   useEffect(() => {
@@ -88,14 +90,11 @@ Animated.loop(
   }, [])
 
 
-
     let [fontsLoaded] = useFonts({
         Roboto_700Bold,
         Roboto_900Black_Italic,
       });
-      
-     
-      
+       
  if (!fontsLoaded) {
         return  <ActivityIndicator size="large" color="#034694" />;
    } else {
@@ -103,6 +102,7 @@ Animated.loop(
     return(
         <SafeAreaView style={styles.container}>
             <Header/>
+            <User/>
             <View style={styles.containerAnimation}>
                 <Animated.Text style={[{ left: chelsea, }, styles.textChelsea]}>
                     Chelsea FC
@@ -134,12 +134,10 @@ const styles = StyleSheet.create({
       paddingTop: '40%',
       backgroundColor: '#034694',
       marginTop: 15,
-
     },
     imageLogo: {
         width: 150,
         height: 150,
-
     },
     textChelsea: {
         fontSize: 35,
@@ -147,16 +145,13 @@ const styles = StyleSheet.create({
         fontFamily: 'Roboto_900Black_Italic',
         color: '#FFF',
         position: 'relative',
-        
-        
     },
     textMaior: {
         fontSize: 20,
         marginTop: 20,
         color: '#FFF',
         fontFamily: 'Roboto_700Bold',
-        position: 'relative',
-        
-    }
+        position: 'relative',  
+    },
        
   });
